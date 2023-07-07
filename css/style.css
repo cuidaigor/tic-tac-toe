@@ -27,13 +27,84 @@ h1 {
 }
 
 .square {
-  width: 100px;
-  height: 100px;
   background-color: rgba(255, 255, 255, .9);
   border: 1px solid gray;
   border-radius: 10px;
   display: inline-block;
 }
+
+@media (max-width: 480px) {
+  /* Estilos para dispositivos móveis */
+  .square {
+    width: 100px;
+    height: 100px;
+  }
+
+  .o::after {
+    font-size: 50px;
+    line-height: 100px;
+  }
+
+  .x::after {
+    font-size: 50px;
+    line-height: 100px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Estilos para tablets */
+  .square {
+    width: 140px;
+    height: 140px;
+  }
+
+  .o::after {
+    font-size: 70px;
+    line-height: 140px;
+  }
+
+  .x::after {
+    font-size: 70px;
+    line-height: 140px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Estilos para desktops pequenos */
+  .square {
+    width: 200px;
+    height: 200px;
+  }
+
+  .o::after {
+    font-size: 100px;
+    line-height: 200px;
+  }
+
+  .x::after {
+    font-size: 100px;
+    line-height: 200px;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Estilos para desktops médios e grandes */
+  .square {
+    width: 210px;
+    height: 210px;
+  }
+
+  .o::after {
+    font-size: 105px;
+    line-height: 210px;
+  }
+
+  .x::after {
+    font-size: 105px;
+    line-height: 210px;
+  }
+}
+
 
 .o {
   position: relative;
@@ -41,9 +112,8 @@ h1 {
 
 .o::after {
   position: absolute;
-  content: "\1F530";
-  font-size: 50px;
-  line-height: 100px;
+  content: "\2764";
+  color: #d30d3f;
   top: 0;
   bottom: 0;
   left: 0;
@@ -56,9 +126,7 @@ h1 {
 
 .x::after {
   position: absolute;
-  content: "\2694";
-  font-size: 50px;
-  line-height: 100px;
+  content: "\1F4A3";
   top: 0;
   bottom: 0;
   left: 0;

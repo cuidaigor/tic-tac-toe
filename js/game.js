@@ -2,6 +2,7 @@ let board = ['', '', '', '', '', '', '', '', ''];
 let playerTime = 0;
 let symbols = ['o', 'x'];
 let gameOver = false;
+let draw = false;
 let winState = [
   ['0', '1', '2'],
   ['3', '4', '5'],
@@ -14,15 +15,12 @@ let winState = [
 ];
 
 function handleMove(position){
-
-  if(gameOver){
-    return;
-  }
   
   if(board[position] == ''){
     board[position] = symbols[playerTime];
 
     gameOver = isWin();
+    draw = gameOver ? false : isDraw();
 
     if(!gameOver){
 
@@ -31,7 +29,11 @@ function handleMove(position){
     }
   }
 
-  return gameOver;
+  if(draw) {
+    return 'draw';
+  }else if(gameOver) {
+    return 'win';
+  }
 }
 
 function isWin(){
@@ -51,4 +53,14 @@ function isWin(){
   }
 
   return false;
+}
+
+function isDraw() {
+  for(let i = 0; i<board.length; i++){
+    if(board[i] === ''){
+      return false;
+    }
+  }
+
+  return true;
 }

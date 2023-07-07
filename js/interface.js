@@ -13,8 +13,15 @@ function handleClick(event){
   let position = square.id;
 
   if(handleMove(position)){
+    let response = handleMove(position);
+    console.log(response)
+
     setTimeout(()=> {
-      alert(`O jogo acabou! O jogador ${playerTime + 1} venceu!`);
+      if(response == 'win'){
+        alert(`O jogo acabou! O jogador ${playerTime + 1} venceu!`);
+      }else if(response == 'draw'){
+        alert(`O jogo acabou! EMPATE!`);
+      }
     }, 20);
   }
 

@@ -14,13 +14,12 @@ function handleClick(event){
 
   if(handleMove(position)){
     let response = handleMove(position);
-    console.log(response)
 
     setTimeout(()=> {
       if(response == 'win'){
-        alert(`O jogo acabou! O jogador ${playerTime + 1} venceu!`);
+        showResult('win', (playerTime + 1));
       }else if(response == 'draw'){
-        alert(`O jogo acabou! EMPATE!`);
+        showResult('draw');
       }
     }, 20);
   }
@@ -32,4 +31,25 @@ function updateSquare(position) {
   let square = document.getElementById(position.toString());
   let symbol = board[position];
   square.innerHTML = `<div class="${symbol}"></div>`;
+}
+
+function showResult(result, winningPlayer) {
+  const modalBody = document.querySelector('#result-modal .modal-body');
+  if(result == 'draw'){
+    modalBody.innerHTML = `
+      <p>EMPATE!</p>
+      <button onclick="reiniciarJogo()">Reiniciar</button>
+    `;
+  }else if('win'){
+    modalBody.innerHTML = `
+      <h2 class="text-default text-bold">O jogador ${winningPlayer} venceu!</h2>
+      <button class="btn btn-secondary" onclick="reiniciarJogo()">Reiniciar</button>
+    `;
+  }
+
+  const modal = new bootstrap.Modal(document.getElementById('result-modal'), {
+    keyboard: false
+  });
+  
+  modal.show();
 }

@@ -60,12 +60,12 @@ img#logo {
   }
 
   .o::after {
-    font-size: 50px;
+    font-size: 100px;
     line-height: 100px;
   }
 
   .x::after {
-    font-size: 50px;
+    font-size: 100px;
     line-height: 100px;
   }
 }
@@ -82,12 +82,12 @@ img#logo {
   }
 
   .o::after {
-    font-size: 70px;
+    font-size: 140px;
     line-height: 140px;
   }
 
   .x::after {
-    font-size: 70px;
+    font-size: 140px;
     line-height: 140px;
   }
 }
@@ -104,12 +104,12 @@ img#logo {
   }
 
   .o::after {
-    font-size: 100px;
+    font-size: 200px;
     line-height: 200px;
   }
 
   .x::after {
-    font-size: 100px;
+    font-size: 200px;
     line-height: 200px;
   }
 }
@@ -122,12 +122,12 @@ img#logo {
   }
 
   .o::after {
-    font-size: 105px;
+    font-size: 210px;
     line-height: 210px;
   }
 
   .x::after {
-    font-size: 105px;
+    font-size: 210px;
     line-height: 210px;
   }
 }
@@ -139,7 +139,7 @@ img#logo {
 
 .o::after {
   position: absolute;
-  content: "\2764";
+  content: "O";
   color: var(--main-purple-color);
   top: 0;
   bottom: 0;
@@ -153,7 +153,8 @@ img#logo {
 
 .x::after {
   position: absolute;
-  content: "\1F4A3";
+  content: "X";
+  color: var(--main-orange-color);
   top: 0;
   bottom: 0;
   left: 0;

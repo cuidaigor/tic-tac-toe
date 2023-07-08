@@ -1,3 +1,9 @@
+:root {
+  --main-purple-color: #882FF6;
+  --main-orange-color: #F99D07;
+  --main-brown-color: #4C1505;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +18,7 @@ body {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background: url('../img/tic-tac-toe.jpg') no-repeat center;
+  background: url('../img/bg.jpg') no-repeat center;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -33,7 +39,7 @@ img#logo {
 
 .square {
   background-color: rgba(255, 255, 255, .9);
-  border: 1px solid gray;
+  border: 2px solid var(--main-brown-color);
   border-radius: 10px;
   display: inline-block;
 }
@@ -130,7 +136,7 @@ img#logo {
 .o::after {
   position: absolute;
   content: "\2764";
-  color: #882FF6;
+  color: var(--main-purple-color);
   top: 0;
   bottom: 0;
   left: 0;

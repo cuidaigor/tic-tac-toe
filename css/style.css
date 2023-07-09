@@ -37,8 +37,11 @@ img#logo {
   margin-bottom: 10px;
 }
 
-.text-default {
+.text-default-purple {
   color: var(--main-purple-color);
+}
+.text-default-orange {
+  color: var(--main-orange-color);
 }
 
 .square {

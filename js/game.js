@@ -64,3 +64,8 @@ function isDraw() {
 
   return true;
 }
+
+function resetGame(){
+  board = ['', '', '', '', '', '', '', '', ''];
+  playerTime = 0;
+}

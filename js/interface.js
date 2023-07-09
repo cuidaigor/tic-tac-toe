@@ -37,19 +37,28 @@ function showResult(result, winningPlayer) {
   const modalBody = document.querySelector('#result-modal .modal-body');
   if(result == 'draw'){
     modalBody.innerHTML = `
-      <p>EMPATE!</p>
-      <button onclick="reiniciarJogo()">Reiniciar</button>
+      <h2 class="text-default-orange text-bold">EMPATE!</h2 class="text-bold">
+      <button class="btn btn-warning" onclick="restartGame()" data-bs-dismiss="modal">Reiniciar</button>
     `;
   }else if('win'){
     modalBody.innerHTML = `
-      <h2 class="text-default text-bold">O jogador ${winningPlayer} venceu!</h2>
-      <button class="btn btn-secondary" onclick="reiniciarJogo()">Reiniciar</button>
+      <h2 class="text-default-purple text-bold">O jogador ${winningPlayer} venceu!</h2>
+      <button class="btn btn-warning" onclick="restartGame()" data-bs-dismiss="modal">Reiniciar</button>
     `;
   }
 
   const modal = new bootstrap.Modal(document.getElementById('result-modal'), {
-    keyboard: false
+    keyboard: true,
   });
   
   modal.show();
+}
+
+function restartGame() {
+  const squares = document.querySelectorAll('.square');
+  squares.forEach((square)=> {
+    square.innerHTML = '';
+  });
+
+  resetGame();
 }

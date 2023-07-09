@@ -1,6 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
+const showPlayerTime = document.querySelector('#player-time');
 
-  let squares = document.querySelectorAll('.square');
+document.addEventListener('DOMContentLoaded', () => {
+  const squares = document.querySelectorAll('.square');
 
   squares.forEach((square) => {
     square.addEventListener('click', handleClick);
@@ -17,9 +18,11 @@ function handleClick(event){
 
     setTimeout(()=> {
       if(response == 'win'){
-        showResult('win', (playerTime + 1));
+        showResult('win', playerTime);
+        showPlayerTime.textContent = '';
       }else if(response == 'draw'){
         showResult('draw');
+        showPlayerTime.textContent = '';
       }
     }, 20);
   }
@@ -31,6 +34,7 @@ function updateSquare(position) {
   let square = document.getElementById(position.toString());
   let symbol = board[position];
   square.innerHTML = `<div class="${symbol}"></div>`;
+  showPlayerTime.textContent = `É a vez do: ${symbols[playerTime].toUpperCase()}`;
 }
 
 function showResult(result, winningPlayer) {
@@ -42,7 +46,7 @@ function showResult(result, winningPlayer) {
     `;
   }else if('win'){
     modalBody.innerHTML = `
-      <h2 class="text-default-purple text-bold">O jogador ${winningPlayer} venceu!</h2>
+      <h2 class="text-default-purple text-bold"><span class="text-default-orange fw-bold">${winningPlayer == '0' ? 'O' : 'X'}</span> venceu!</h2>
       <button class="btn btn-warning" onclick="restartGame()" data-bs-dismiss="modal">Reiniciar</button>
     `;
   }
@@ -60,5 +64,6 @@ function restartGame() {
     square.innerHTML = '';
   });
 
+  showPlayerTime.textContent = `O começa o jogo`;
   resetGame();
 }
